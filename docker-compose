@@ -9,8 +9,8 @@ services:
       - CRIBL_DIST_MODE=master
       - CRIBL_DIST_MASTER_URL=tcp://criblmaster@0.0.0.0:4200
       - CRIBL_VOLUME_DIR=/opt/cribl/config-volume
-      - PUID=1001 #  user id
-      - PGID=999 #  group id
+      - PUID=1001 #  user id, change to what user container run as
+      - PGID=999 #  group id, change to what group container run as
     expose:
       - "4200"
       - "1900"
@@ -25,8 +25,8 @@ services:
     environment:
       - CRIBL_DIST_MODE=worker
       - CRIBL_DIST_MASTER_URL=tcp://criblmaster@master:4200
-      - PUID=1001 # user id
-      - PGID=999 #  group id
+      - PUID=1001 # user id, change to what user container run as
+      - PGID=999 #  group id, change to what group container run as
     ports:
       - 9000
 
@@ -38,8 +38,8 @@ services:
     depends_on:
       - workers
     environment:
-      - PUID=1001 # user id
-      - PGID=999 #  group id
+      - PUID=1001 # user id, change to what user container run as
+      - PGID=999 #  group id, change to what group container run as
     ports:
       - "80:80"
       - "443:443"
